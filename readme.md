@@ -4,7 +4,7 @@ This repository contains files and scripts related to the classification and ana
 
 ## Datasets
 
-- drQiu_trainingData.xlsx: Contains the conotoxin sequences**nonIonToxinCombined.xlsx**: A dataset of non-ion channel targeting sequences.
+- drQiu_trainingData.xlsx: Contains the conotoxin sequences **nonIonToxinCombined.xlsx**: A dataset of non-ion channel targeting sequences.
 
 - `og_teretoxins.csv`: dataset of teretoxins.
 
