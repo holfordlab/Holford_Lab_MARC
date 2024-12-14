@@ -1,0 +1,27 @@
+#This command is for analysis of qTMclust output data after copying the text file into a csv
+#run for both teretoxins and conotoxins combined
+import csv
+
+# Paths to input and output files
+input_file = "./all_qTMclus.csv"  # Replace with your input file path
+output_file = "all_qTMclus_cout.csv"  # Replace with your desired output file path
+
+# Open input and output files
+with open(input_file, 'r') as infile, open(output_file, 'w', newline='') as outfile:
+    # Change the delimiter to comma
+    reader = csv.reader(infile, delimiter=',')  # Use a comma as the delimiter
+    writer = csv.writer(outfile)
+    
+    # Process each row
+    for row in reader:
+        if row:  # Ensure the row is not empty
+            cluster_number = row[0].strip()  # Clean the cluster number
+            structure_names = [structure.strip() for structure in row[1:] if structure.strip()]  # Clean structure names
+            
+            # Write to output only if there's a valid cluster number and structure names
+            if cluster_number and structure_names:
+                for structure_name in structure_names:
+                    writer.writerow([cluster_number, structure_name])
+
+print(f"CSV transformation complete. Output written to {output_file}")
+
