@@ -1,0 +1,2 @@
+./qTMclust -dir best_models/ tere_chain_list.txt -TMcut 0.7 -o tereqTMclust.txt
+# change -TMcut to the threshold you need, range is from 0.45-0.9
