@@ -1,0 +1,8 @@
+# command for one input at a time
+python3 docker/run_docker.py \
+  --fasta_paths=/mnt/fdata/data/afdata_input/Teretoxin.fasta \
+  --max_template_date=2022-01-01 \
+  --data_dir=/mnt/fdata/afdatabase \
+  --output_dir=/mnt/fdata/data/afdata_out
+
+#command for multiple inputs/batch run
