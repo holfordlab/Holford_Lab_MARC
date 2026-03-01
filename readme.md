@@ -34,6 +34,13 @@ This repository contains files and scripts related to the classification and ana
 
 - test_teretoxin.py: A Python script to predict teretoxin classes.
 
+## Direct Inference Pipeline (Reviewer Update)
+
+- `marc_model.pkl`: The pre-trained Random Forest model, allowing users to run predictions instantly without needing to retrain from scratch.
+- `predict_marc.py`: A standalone Python script that automatically extracts ESM-2 features and predicts targets directly from a user-provided CSV file. Includes a confidence threshold that outputs "No Prediction" for low-confidence sequences.
+- `predict_marc_sh.sh`: An sbatch script for running the standalone prediction pipeline on a SLURM cluster.
+- `marc.py` & `marc_sh.sh`: The core training script and corresponding sbatch file used to generate the pre-trained model.
+
 ## How to Use
 
 ### Run ROC Curve Analysis:
@@ -67,6 +74,19 @@ You can either run the script directly: <br>
 or submit it as a job on a cluster using: <br>
 <pre>sbatch test_og_teretoxin_sh.sh</pre>
 Ion channel predictions will be saved in `predictions_og_teretoxin.csv`.
+
+### Quick Prediction via Command Line (No Retraining Needed)
+
+We have streamlined the prediction process so users can classify new sequences using the pre-trained model (`marc_model.pkl`) via a single command:
+
+1. **Format your dataset:** Ensure your input CSV has a column named `sequence` (or `seq`) containing the peptide sequences.
+2. **Run the prediction:** Pass your CSV file directly as an argument in the terminal. You do not need to modify the Python code.
+<pre>python predict_marc.py your_custom_dataset.csv</pre>
+
+*(If using a SLURM cluster, update the input filename inside `predict_marc_sh.sh` and run: `sbatch predict_marc_sh.sh`)*
+
+**Output:** The script will extract the ESM-2 features and generate a new file named `predicted_your_custom_dataset.csv` containing the classifications and confidence scores.
+
 ## Outputs
 
 - roc_auc_multiclass_separated.png: ROC curves for individual classes.
