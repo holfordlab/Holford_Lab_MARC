@@ -34,7 +34,7 @@ This repository contains files and scripts related to the classification and ana
 
 - test_teretoxin.py: A Python script to predict teretoxin classes.
 
-## $\color{#2E86C1}{\textsf{Direct Inference Pipeline (Reviewer Update)}}$
+## $\color{red}{\textsf{Direct Inference Pipeline (Reviewer Update)}}$
 
 - `marc_model.pkl`: The pre-trained Random Forest model, allowing users to run predictions instantly without needing to retrain from scratch.
 - `predict_marc.py`: A standalone Python script that automatically extracts ESM-2 features and predicts targets directly from a user-provided CSV file. Includes a confidence threshold that outputs "No Prediction" for low-confidence sequences.
