@@ -75,7 +75,7 @@ or submit it as a job on a cluster using: <br>
 <pre>sbatch test_og_teretoxin_sh.sh</pre>
 Ion channel predictions will be saved in `predictions_og_teretoxin.csv`.
 
-### Quick Prediction via Command Line (No Retraining Needed)
+### $\color{red}{\textsf{Quick Prediction via Command Line (No Retraining Needed)}}$
 
 We have streamlined the prediction process so users can classify new sequences using the pre-trained model (`marc_model.pkl`) via a single command:
 
